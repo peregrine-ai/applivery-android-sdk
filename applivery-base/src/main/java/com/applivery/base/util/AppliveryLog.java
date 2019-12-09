@@ -238,9 +238,10 @@ public class AppliveryLog {
      */
     public static void error(String tag, String message) {
         tag = sanitizeTag(tag);
-        if (sLogLevel <= Log.ERROR) {
-            Log.e(tag, message);
-        }
+        throw new RuntimeException("Applivery error" + tag + ": " + message);
+        //if (sLogLevel <= Log.ERROR) {
+            //Log.e(tag, message);
+        //}
     }
 
     /**
