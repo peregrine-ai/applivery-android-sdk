@@ -25,7 +25,18 @@ private const val APP_TYPE_ID = "application/vnd.android.package-archive"
 
 object ApkInstaller {
 
+    private var onApkAvailable: ((filePath: String) -> Boolean)? =
+        null //return false: let Applivery perform install
+
+    /**
+     * @return true if the event is handled by the caller, false if you want Applivery to install the apk.
+     */
+    fun onApkAvailable(callback: ((filePath: String) -> Boolean)?) {
+        onApkAvailable = callback
+    }
+
     fun installApplication(context: Context, filePath: String) {
+        if (onApkAvailable?.invoke(filePath) == true) return
 
         val uri = AppliveryFileProvider().uriFromFile(context, File(filePath))
 

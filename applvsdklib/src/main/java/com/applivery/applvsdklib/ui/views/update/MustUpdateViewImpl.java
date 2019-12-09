@@ -192,7 +192,7 @@ public class MustUpdateViewImpl extends DialogFragment implements UpdateView {
     }
 
     public void lockRotationOnParentScreen() {
-        AppliverySdk.lockRotationToPortrait();
+        AppliverySdk.lockRotation();
     }
 
     @Override

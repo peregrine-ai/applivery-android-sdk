@@ -270,7 +270,7 @@ public class UserFeedbackView extends DialogFragment implements FeedbackView, Vi
 
     @Override
     public void lockRotationOnParentScreen(Activity currentActivity) {
-        AppliverySdk.lockRotationToPortrait();
+        AppliverySdk.lockRotation();
     }
 
     @Override
