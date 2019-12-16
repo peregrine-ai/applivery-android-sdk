@@ -84,6 +84,8 @@ public class AppliverySdk {
   private static Boolean checkForUpdatesBackground = BuildConfig.CHECK_FOR_UPDATES_BACKGROUND;
   private static Boolean isUpdating = false;
 
+  private static Integer originalRotation = null;
+
   public static synchronized void sdkInitialize(Application app, String appToken,
       boolean isStoreRelease) {
     init(app, appToken, isStoreRelease);
@@ -204,17 +206,19 @@ public class AppliverySdk {
   }
 
   @SuppressLint("SourceLockedOrientationActivity")
-  public static void lockRotationToPortrait() {
+  public static void lockRotation() {
     Activity activity = activityLifecycle.getCurrentActivity();
     if (activity != null) {
-      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+      originalRotation = activity.getRequestedOrientation();
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
     }
   }
 
   public static void unlockRotation() {
     Activity activity = activityLifecycle.getCurrentActivity();
-    if (activity != null) {
-      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+    if (activity != null && originalRotation != null) {
+      activity.setRequestedOrientation(originalRotation);
+      originalRotation = null;
     }
   }
 
