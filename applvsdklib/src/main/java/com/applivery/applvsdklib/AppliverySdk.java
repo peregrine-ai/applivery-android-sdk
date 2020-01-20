@@ -98,7 +98,6 @@ public class AppliverySdk {
       initializeAppliveryConstants(app, appToken, isStoreRelease);
       app.registerActivityLifecycleCallbacks(new AppliveryLifecycleCallbacks());
       registerActivityLifecyleCallbacks(app);
-      obtainAppConfig(false);
     }
   }
 
