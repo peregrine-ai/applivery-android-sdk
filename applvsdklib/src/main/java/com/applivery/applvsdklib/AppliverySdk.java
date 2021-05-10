@@ -170,22 +170,29 @@ public class AppliverySdk {
 
     @SuppressLint("SourceLockedOrientationActivity")
     public static void lockRotationToPortrait() {
+        /*
         Activity activity = activityLifecycle.getCurrentActivity();
         if (activity != null) {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+
+         */
     }
 
     @SuppressLint("SourceLockedOrientationActivity")
     public static void lockRotation() {
+        /*
         Activity activity = activityLifecycle.getCurrentActivity();
         if (activity != null) {
             originalRotation = activity.getRequestedOrientation();
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         }
+
+         */
     }
 
     public static void unlockRotation() {
+        /*
         Activity activity = activityLifecycle.getCurrentActivity();
         if (activity != null) {
             if (originalRotation != null) {
@@ -195,6 +202,8 @@ public class AppliverySdk {
             }
             originalRotation = null;
         }
+
+         */
     }
 
     public static synchronized boolean isInitialized() {
