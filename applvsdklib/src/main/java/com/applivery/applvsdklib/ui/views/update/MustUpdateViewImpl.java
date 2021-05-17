@@ -50,6 +50,8 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 
+import static com.applivery.applvsdklib.AppliverySdk.getSilentAccept;
+
 /**
  * Created by Sergio Martinez Rodriguez
  * Date 3/1/16.
@@ -149,6 +151,11 @@ public class MustUpdateViewImpl extends DialogFragment implements UpdateView {
                     initListener();
                 }
             });
+            if(getSilentAccept()){
+                // auto-click accept if we allow a forced accept
+                AppliverySdk.Logger.log("Proceeding because of silent accept.");
+                update.callOnClick();
+            }
         } else {
             update.setVisibility(View.GONE);
         }

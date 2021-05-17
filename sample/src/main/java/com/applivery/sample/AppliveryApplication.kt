@@ -26,6 +26,7 @@ class AppliveryApplication : Application() {
 
         if (BuildConfig.BUILD_TYPE != "release") {
             Applivery.init(this, BuildConfig.APPLIVERY_APP_TOKEN)
+            Applivery.setSilentAccept(false)
             Applivery.setCheckForUpdatesBackground(appPreferences.checkForUpdatesBackground)
         }
     }

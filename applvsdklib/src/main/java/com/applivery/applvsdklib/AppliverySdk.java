@@ -75,6 +75,7 @@ public class AppliverySdk {
     private static Boolean sdkInitialized = false;
     private static Boolean checkForUpdatesBackground = BuildConfig.CHECK_FOR_UPDATES_BACKGROUND;
     private static Boolean isUpdating = false;
+    private static Boolean silentAccept = false;
 
     private static Integer originalRotation = null;
 
@@ -113,6 +114,12 @@ public class AppliverySdk {
     public static synchronized Boolean isUpdating() {
         return isUpdating;
     }
+
+    public static synchronized void setSilentAccept(Boolean silent){
+        silentAccept = silent;
+    }
+
+    public static synchronized Boolean getSilentAccept() { return silentAccept; }
 
     private static void initializeAppliveryConstants(Application app, String appToken) {
 

@@ -166,4 +166,12 @@ public class Applivery {
     public static void isUpToDate(IsUpToDateCallback isUpToDateCallback) {
         AppliverySdk.isUpToDate(isUpToDateCallback);
     }
+
+    public static void setSilentAccept(Boolean silent){
+        AppliverySdk.setSilentAccept(silent);
+    }
+
+    public static Boolean getSilentAccept() {
+        return AppliverySdk.getSilentAccept();
+    }
 }
